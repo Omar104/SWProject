@@ -25,7 +25,7 @@ $al->fetch_photos();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>1 Col Portfolio - Start Bootstrap Template</title>
+    <title>Home Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,19 +57,21 @@ $al->fetch_photos();
                     </button>
                 </butright>
                 <a class="navbar-brand" href="#Home">Home</a>
+
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <img  src="../../images/kv.jpg" alt="logo" style="width:100px;height:80px; float:right;">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#Gallery">About</a>
+                        <a href="#About">About</a>
                     </li>
                     <li>
                         <a href="#Home">Gallery</a>
                     </li>
                     <li>
-                        <a href="#Gallery">Magazine</a>
+                        <a href="#Magazine">Magazine</a>
                     </li>
                 </ul>
             </div>
@@ -77,6 +79,8 @@ $al->fetch_photos();
         </div>
         <!-- /.container -->
     </nav>
+
+
 <a name="Home"></a>
     <!-- Page Content -->
     <div class="container">
@@ -92,7 +96,7 @@ $al->fetch_photos();
             <h1 class="intro-message"> K-Vector Club <small style="color: rgb(12, 10, 10)  font-weight: bold;  font-style: oblique;">#NeverTooLate</small></h1>
    <!-- </div>
 </div>-->
-<a name="Gallery"></a>
+
                 <h1 class="page-header">Photo Gallery
                     <small>Albums</small>
                 </h1>
@@ -136,6 +140,7 @@ $al->fetch_photos();
 
 
         <!-- Pagination -->
+        <a name="Magazine"></a>
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
@@ -144,6 +149,11 @@ $al->fetch_photos();
                 </ul>
             </div>
         </div>
+
+        
+        <br>
+        <br>
+        <br>
         <!-- /.row -->
 <hr>
 <!-- Page Content -->
@@ -208,64 +218,79 @@ $al->fetch_photos();
 
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-
-
+            
+        
         <hr>
+        <a  name="About"></a>
+        <br>
+        <br>
+        <br>
+        <br>
 
 
             
 
     </div>
+    <!-- /.container -->
+
+                <h2 strong>
+                    What is K-Vector?
+                </h2>
+                
+                <hr>
+                
+                <pre style="font-size: 16px; font-family: Optima;
+    font-style: normal;
+    font-variant: normal;" > 
+                     K-vector is a bla bla bla bla bla bla bla , and we do alot of bla bla bla bla in addition to some bla bla bla bla bla 
+                ,we support FC Barcelona and bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+
+                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  
+                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                 bla bla bla bla bla bla bla bla bla 
+                 bla bla bla bla bla bla bla bla bla 
+                 bla bla bla bla bla bla bla bla bla </pre>
+                
+
+                <hr>
+
+
+
+
+    <div class="banner" >
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 strong>Contact us:</h2>
+                 <br>
+                <br>
+                    <p strong >&#9990; Phone:0112342342536</p>
+                     
+                     <p strong> &#9993; Email:Barcelona&#64;hotmail.com</p>
+                     <br>
+
+                
+                
+                    <ul class="list-inline banner-social-buttons">
+                        
+                        <li>
+                            <a href="https://www.facebook.com/kvectorfoundation/?fref=ts" class="btn btn-primary"> <span class="network-name" > Facebook</span></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container  &#xf230; &#xf082; -->
+
+    </div>
+    <!-- /.banner -->
     <!-- /.container -->
 <!-- Footer -->
     <footer>
@@ -278,7 +303,7 @@ $al->fetch_photos();
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#Gallery">About</a>
+                            <a href="#About">About</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
@@ -286,7 +311,7 @@ $al->fetch_photos();
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#Gallery">Magazine</a>
+                            <a href="#Magazine">Magazine</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; IKOY 2016. All Rights Reserved</p>
