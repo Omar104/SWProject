@@ -2,6 +2,7 @@
 <?php require_once ("../includes/functions.php");    //includes of all needed classes and functions
       require_once ("../includes/pagination.php");
       require_once ("../includes/albums.php");
+      require_once ("../includes/about.php");
 if(!isset($database))    // checking connectivity to database
 {
     die("database unable to connect");
@@ -10,7 +11,7 @@ if(isset($_GET['page'])) // current page of the album
 {
     $pg->current_page = $_GET['page'];
 }
-
+$ab = new about($database);
 $al = new albums($pg->current_page ,$database->no_albums(),$database);
 $al->fetch_photos();
 ?>
@@ -108,29 +109,29 @@ $al->fetch_photos();
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">
-                <a <?php echo $al->to_slides($al->album1,1)?>>
+                <a <?php echo $al->to_slides(1)?>>
                     <img class="img-responsive" src="<?php echo $al->cover1() ?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php echo $al->album1 ?></a>
+                    <a ><?php if(isset($al->album1)) echo $al->album1 ?></a>
                 </h3>
-                <p><?php echo $al->desc1?></p>
+                <p><?php  echo $al->desc1?></p>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a <?php echo $al->to_slides($al->album2,2)?>>
+                <a <?php echo $al->to_slides(2)?>>
                     <img class="img-responsive" src="<?php echo $al->cover2() ?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php echo $al->album2 ?></a>
+                    <a ><?php if(isset($al->album2))echo $al->album2 ?></a>
                 </h3>
-                <p><?php echo $al->desc2?></p>
+                <p><?php  echo $al->desc2?></p>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a <?php echo $al->to_slides($al->album3,3)?>>
+                <a <?php echo $al->to_slides(3)?>>
                     <img class="img-responsive" src="<?php echo $al->cover3()?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php echo $al->album3?></a>
+                    <a ><?php if(isset($al->album3))echo $al->album3?></a>
                 </h3>
                 <p><?php echo $al->desc3?></p>
             </div>
@@ -228,7 +229,7 @@ $al->fetch_photos();
         <br>
 
 
-            
+         </div>
 
     </div>
     <!-- /.container -->
@@ -242,17 +243,7 @@ $al->fetch_photos();
                 <pre style="font-size: 16px; font-family: Optima;
     font-style: normal;
     font-variant: normal;" > 
-                     K-vector is a bla bla bla bla bla bla bla , and we do alot of bla bla bla bla in addition to some bla bla bla bla bla 
-                ,we support FC Barcelona and bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
-
-                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  
-                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                 bla bla bla bla bla bla bla bla bla 
-                 bla bla bla bla bla bla bla bla bla 
-                 bla bla bla bla bla bla bla bla bla </pre>
+                  <?php echo $ab->info ?></pre>
                 
 
                 <hr>
@@ -269,9 +260,9 @@ $al->fetch_photos();
                     <h2 strong>Contact us:</h2>
                  <br>
                 <br>
-                    <p strong >&#9990; Phone:0112342342536</p>
+                    <p strong >&#9990; Phone:<?php echo $ab->t_number ?></p>
                      
-                     <p strong> &#9993; Email:Barcelona&#64;hotmail.com</p>
+                     <p strong> &#9993; Email:<?php echo $ab->email?></p>
                      <br>
 
                 
@@ -279,7 +270,7 @@ $al->fetch_photos();
                     <ul class="list-inline banner-social-buttons">
                         
                         <li>
-                            <a href="https://www.facebook.com/kvectorfoundation/?fref=ts" class="btn btn-primary"> <span class="network-name" > Facebook</span></a>
+                            <a href=<?php echo '"'.$ab->link.'"' ?> class="btn btn-primary"> <span class="network-name" > Facebook</span></a>
                         </li>
                         
                     </ul>

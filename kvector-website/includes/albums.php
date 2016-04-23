@@ -187,12 +187,25 @@ class albums
         }
 
     }
-    function to_slides($al ,$num) // determines if the album cover is a link to the slide show for the choosen album
+    function to_slides($num) // determines if the album cover is a link to the slide show for the choosen album
     {
-        if(isset($al))
-            echo"href=".'"'."slider.php?al={$al}&cp={$this->active_page}&desc={$num}".'"' ;
+        if($num == 1) {
+            if(isset($this->album1))
+            echo "href=" . '"' . "slider.php?al={$this->album1}&cp={$this->active_page}&desc={$num}" . '"';
+        else
+            echo "";
+        }
+        if($num == 2) {
+            if(isset($this->album2))
+                echo "href=" . '"' . "slider.php?al={$this->album2}&cp={$this->active_page}&desc={$num}" . '"';
             else
                 echo "";
+        } if($num == 3) {
+        if(isset($this->album3))
+            echo "href=" . '"' . "slider.php?al={$this->album3}&cp={$this->active_page}&desc={$num}" . '"';
+        else
+            echo "";
+        }
     }
 }
 
