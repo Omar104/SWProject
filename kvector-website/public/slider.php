@@ -44,7 +44,7 @@ $alb->fetch_photos();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="C:\Users\Omarove10\Desktop\project\startbootstrap-1-col-portfolio-1.0.4\startbootstrap-1-col-portfolio-1.0.4\index.html">Home</a>
+                <a class="navbar-brand" href="index.php">Home</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <img  src="../../images/kv.jpg" alt="logo" style="width:100px;height:80px; float:right;">
@@ -102,7 +102,7 @@ $alb->fetch_photos();
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="C:\Users\Omarove10\Desktop\project\startbootstrap-1-col-portfolio-1.0.4\startbootstrap-1-col-portfolio-1.0.4\index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         

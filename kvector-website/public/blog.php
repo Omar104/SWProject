@@ -43,7 +43,7 @@
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <img src="../../images/kv.jpg " alt="logo" style="width:100px;height:80px; float:left;">
+            <img src="../../images/kv.jpg " alt="logo" style="width:100px;height:80px; float:right;">
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -67,7 +67,7 @@
                     Blog Post Title
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    by <a >Omar</a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
                 <hr>
@@ -105,7 +105,7 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="C:\Users\Omarove10\Desktop\project\startbootstrap-1-col-portfolio-1.0.4\startbootstrap-1-col-portfolio-1.0.4\index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         
                     </ul>
