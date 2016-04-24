@@ -14,7 +14,7 @@ class pagination  //class for controlling the viewing of the albums
 
     private function  pre()
     {
-        if($this->current_page != 1)
+        if($this->current_page != 1 && $this->no_pages > 0)
         {
             $tmp = $this->current_page - 1;
             return'<li>
@@ -28,7 +28,7 @@ class pagination  //class for controlling the viewing of the albums
     private function  p1()
     {
         $tmp = $this->current_page -2;
-        if($tmp >= 1)
+        if($tmp >= 1 && $this->no_pages > 0)
         {
             return'<li>
                         <a href="'."index.php?page={$tmp}".'">'."{$tmp}".'</a> </li>';
@@ -39,7 +39,7 @@ class pagination  //class for controlling the viewing of the albums
     private function  p2()
     {
         $tmp = $this->current_page -1;
-        if($tmp >= 1)
+        if($tmp >= 1 && $this->no_pages > 0)
         {
             return'<li>
                         <a href="'."index.php?page={$tmp}".'">'."{$tmp}".'</a> </li>';
@@ -51,8 +51,11 @@ class pagination  //class for controlling the viewing of the albums
     {
         $tmp = $this->current_page;
 
+        if($this->no_pages >0)
             return'<li class = "active">
                         <a href="'."index.php?page={$tmp}".'">'."{$tmp}".'</a> </li>';
+        else
+            return "";
 
     }
     private function  p4()
@@ -79,7 +82,7 @@ class pagination  //class for controlling the viewing of the albums
     }
     private function  post()
     {
-        if($this->current_page != $this->no_pages)
+        if($this->current_page != $this->no_pages && $this->no_pages >0)
         {
             $tmp = $this->current_page + 1;
             return'<li>

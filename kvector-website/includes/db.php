@@ -71,7 +71,7 @@ class datbase
     }
     function album_names($offset)   // retrive names of the 3 albums to display
     {
-        $this->last_query ="select name,n0_photos from albums LIMIT 3 OFFSET {$offset}";
+        $this->last_query ="select name from albums LIMIT 3 OFFSET {$offset}";
         $this->result = mysqli_query($this->connection ,$this->last_query);
         $this->confirm_query();
     }
@@ -80,6 +80,13 @@ class datbase
         $this->last_query  = 'select file_name from photo where album ="'."{$album}".'"';
         $this->result = mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
+    }
+    function  f_about()
+    {
+        $this->last_query ='select * from about';
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        return $this->row = $this->fetch_row();
     }
     function get_desc($al)
     {
