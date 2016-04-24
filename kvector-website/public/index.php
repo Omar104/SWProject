@@ -170,50 +170,13 @@ $al->fetch_photos();
                     <small>Articles</small>
                 </h1>
 
+
+
+
+
+                <iframe width="150%" height="400px" src="blogy.html" name="iframe_a"></iframe>
+
                 <!-- First Blog Post -->
-                <h2>
-                    <a href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Omar</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:00 PM</p>
-                <hr>
-            
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore labo</p>
-                <a class="btn btn-primary" href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Second Blog Post -->
-                <h2>
-                    <a href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Omar tany -_-</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:45 PM</p>
-                <hr>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-                <a class="btn btn-primary" href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Third Blog Post -->
-                <h2>
-                    <a href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Omar taalet ha ha ha :v</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:45 PM</p>
-                <hr>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-                <a class="btn btn-primary" href="Harticles/startbootstrap-blog-home-1.0.4/index.html">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
 
                 
 
