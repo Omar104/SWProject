@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home</title>
+    <title>Blog itself</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,26 +28,7 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Home</a>
-
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <img src="../../images/kv.jpg " alt="logo" style="width:100px;height:80px; float:right;">
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    
 
     <!-- Page Content -->
     <div class="container">
@@ -57,17 +38,13 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
+                <a class="btn btn-primary" href="blogy.php"><span class="glyphicon glyphicon-chevron-left"></span>  Back </a>
                 <!-- First Blog Post -->
                 <h2>
                     Blog Post Title
                 </h2>
                 <p class="lead">
-                    by <a >Omar</a>
+                    by Omar
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
                 <hr>
@@ -92,7 +69,7 @@
                 
 
                 <hr>
-
+                 <a class="btn btn-primary" href="blogy.php"><span class="glyphicon glyphicon-chevron-left"></span>  Back </a>
                 </div>
                 </div>
             </div>
@@ -105,7 +82,7 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="blogy.php">Home</a>
                         </li>
                         
                     </ul>
