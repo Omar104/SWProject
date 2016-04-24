@@ -5,6 +5,17 @@ class datbase
     private $last_query;                               // query string
     private $result;                              // result of query
     private $row;                                 // row of query
+    static $db = NULL;                            //static variable to create one db instance
+    public static  function  get_instance()      // singleton design pattern
+    {
+        if(datbase::$db == NULL)
+        {
+            datbase::$db = new datbase();
+            return datbase::$db;
+        }
+        else
+            return datbase::$db;
+    }
     function connect()                           // connect to database function
 
     {
@@ -19,7 +30,7 @@ class datbase
         }
     }
 
-    function  __construct()                                 // constructor to automatically connect to databse
+   private function  __construct()                                 // constructor to automatically connect to databse
     {
         $this->connect();
         $this->last_query = NULL;
@@ -81,12 +92,12 @@ class datbase
         $this->result = mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
     }
-    function  f_about()
+    function  f_about()  //get the information for the about section
     {
         $this->last_query ='select * from about';
         $this->result = mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
-        return $this->row = $this->fetch_row();
+        return  $this->fetch_row();
     }
     function get_desc($al)
     {
@@ -96,9 +107,28 @@ class datbase
         $this->row = $this->fetch_row();
         return $this->row['description'];
     }
+    function count_blogs()
+    {
+        $this->last_query="select count(*) from blog";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        $this->row = $this->fetch_row();
+        return $this->row["count(*)"];
+    }
+    function get_blog($off)
+    {
+        if ($off == 0)
+            $this->last_query ="select * from blog LIMIT 1 ";
+        else
+        $this->last_query = "select * from blog LIMIT 1 ,{$off}";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        return $this->fetch_row();
+
+    }
 }
 
 
-$database = new datbase();     // creating object
+$database = datbase::get_instance(); // creating object using singletaion design pattern
 ?>
 
