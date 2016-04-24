@@ -1,4 +1,4 @@
-
+<?php require_once ("../includes/blog_control.php")?>
 
 <!DOCTYPE html>
 
@@ -39,51 +39,7 @@
             <div class="col-md-8">
 
 
-                <h2>
-                    Blog Post Title
-                </h2>
-                <p class="lead">
-                    by Omar
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:00 PM</p>
-                <hr>
-            
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore labo</p>
-                <a class="btn btn-primary" href="blog.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Second Blog Post -->
-                <h2>
-                    Blog Post Title
-                </h2>
-                <p class="lead">
-                    by Omar tany -_-
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:45 PM</p>
-                <hr>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-                <a class="btn btn-primary" href="blog.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Third Blog Post -->
-                <h2>
-                    Blog Post Title
-                </h2>
-                <p class="lead">
-                    by Omar taalet ha ha ha :v
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2015 at 10:45 PM</p>
-                <hr>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-                <a class="btn btn-primary" href="blog.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-
+                <?php $bl->display_all() ?>
 
                 </div>
                 </div>
@@ -94,14 +50,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <ul class="list-inline">
-                        
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#Magazine">Magazine</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                    </ul>
+
                     <p class="copyright text-muted small">Copyright &copy; IKOY 2016. All Rights Reserved</p>
                 </div>
             </div>

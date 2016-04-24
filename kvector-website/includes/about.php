@@ -1,7 +1,7 @@
 <?php
 require_once ("db.php");
 
-class about
+class about            // class for the about section information
 {
     public $info;
     public $t_number;

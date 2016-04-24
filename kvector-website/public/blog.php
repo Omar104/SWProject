@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once("../includes/blog_control.php") ?>
 <head>
 
     <meta charset="utf-8">
@@ -40,35 +40,7 @@
 
                 <a class="btn btn-primary" href="blogy.php"><span class="glyphicon glyphicon-chevron-left"></span>  Back </a>
                 <!-- First Blog Post -->
-                <h2>
-                    Blog Post Title
-                </h2>
-                <p class="lead">
-                    by Omar
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
-                <hr>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerumwadkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhgyyyyyyyyyyydxawdxwaxawdcacdawcxawcwacwacwawacawc
-                cwsadwadxwaxdaw
-                dawdxwadxawdxwrgrtghstgeagaetgvea
-                rgadegawnffawgjirejgfaowejgwjeiogjroegrkjgegahwsdjalwijalwdjlawhalwhdalwdhandawdhakwdsakdhalwdalda
-                dawdadlkawdlawdohawdhawkdhawkdh
-                dawdxwadxawdxwrgrtghstgeagaetgvea
-                rgadegawnffawgjirejgfaowejgwjeiogjroegrkjgegahwsdjalwijalwdjlawhalwhdalwdhandawdhakwdsakdhalwdalda
-                dawdadlkawdlawdohawdhawkdhawkdh
-                dawdxwadxawdxwrgrtghstgeagaetgvea
-                rgadegawnffawgjirejgfaowejgwjeiogjroegrkjgegahwsdjalwijalwdjlawhalwhdalwdhandawdhakwdsakdhalwdalda
-                dawdadlkawdlawdohawdhawkdhawkdh
-                dawdxwadxawdxwrgrtghstgeagaetgvea
-                rgadegawnffawgjirejgfaowejgwjeiogjroegrkjgegahwsdjalwijalwdjlawhalwhdalwdhandawdhakwdsakdhalwdalda
-                dawdadlkawdlawdohawdhawkdhawkdh
-                dawdxwadxawdxwrgrtghstgeagaetgvea
-                rgadegawnffawgjirejgfaowejgwjeiogjroegrkjgegahwsdjalwijalwdjlawhalwhdalwdhandawdhakwdsakdhalwdalda
-                dawdadlkawdlawdohawdhawkdhawkdh.</p>
-                
-
-                <hr>
+               <?php $bl->display($_GET['b'])?>
                  <a class="btn btn-primary" href="blogy.php"><span class="glyphicon glyphicon-chevron-left"></span>  Back </a>
                 </div>
                 </div>

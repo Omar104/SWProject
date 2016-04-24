@@ -169,17 +169,7 @@ $al->fetch_photos();
                     Magazine
                     <small>Articles</small>
                 </h1>
-
-
-
-
-
-                <iframe width="150%" height="400px" src="blogy.html" name="iframe_a"></iframe>
-
-                <!-- First Blog Post -->
-
-                
-
+                <iframe width="150%" height="400px" src="blogy.php" name="iframe_a"></iframe>
             </div>
 
             
