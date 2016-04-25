@@ -1,0 +1,46 @@
+create table about
+(
+id smallint(6) AUTO_INCREMENT,
+info varchar(500),
+tele_number varchar(20),
+email varchar(100),
+link varchar(100),
+PRIMARY KEY (id)
+
+);
+
+create table admin
+(
+id int AUTO_INCREMENT,
+username varchar(50),
+pass varchar(16),
+first_name varchar(50),
+last_name varchar(50),
+UNIQUE (username)
+);
+
+create table albums
+(
+id int AUTO_INCREMENT,
+name varchar(200),
+description varchar(500),
+UNIQUE (name)
+);
+
+create table blog
+(
+admin_name varchar(100),
+blog_date date,
+title varchar(100),
+blog text,
+PRIMARY KEY (title)
+);
+
+create table photo
+(
+id int AUTO_INCREMENT,
+file_name varchar(200),
+album varchar(200),
+PRIMARY KEY (id),
+FOREIGN KEY (album) REFERENCES albums(name)
+);
