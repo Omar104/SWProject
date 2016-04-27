@@ -58,12 +58,17 @@ $al->fetch_photos();
                     <span class="icon-bar"></span>
                     </button>
                 </butright>
+                <img  class="navbar-brand" src="../../images/kv.jpg" alt="logo" style="width:100px;height:80px; float:left;position: absolute;
+    left: 0px;
+    top: -15px;
+    bottom: 0px;
+    z-index: 0; ">
                 <a class="navbar-brand" href="#Home">Home</a>
 
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <img  src="../../images/kv.jpg" alt="logo" style="width:100px;height:80px; float:right;">
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
@@ -105,8 +110,9 @@ $al->fetch_photos();
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.4px;  color: #f8f8f8;">Photo Gallery
-                    <small style="color: rgb(46, 51, 53);font-style: oblique;">Albums</small>
+
                 </h1>
+                <br>
             </div>
         </div>
         <!-- /.row -->
@@ -119,27 +125,33 @@ $al->fetch_photos();
                     <img class="img-responsive" src="<?php echo $al->cover1() ?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php if(isset($al->album1)) echo $al->album1 ?></a>
+                    <?php if(isset($al->album1)) echo "         ".$al->album1 ?>
                 </h3>
-                <p><?php  echo $al->desc1?></p>
+               <pre style="font-size: 16px; font-family: Optima;
+    font-style: normal;
+    font-variant: normal;" > <p><?php  echo $al->desc1?></p></pre>
             </div>
             <div class="col-md-4 portfolio-item">
                 <a <?php echo $al->to_slides(2)?>>
                     <img class="img-responsive" src="<?php echo $al->cover2() ?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php if(isset($al->album2))echo $al->album2 ?></a>
+                    <?php if(isset($al->album2))echo $al->album2 ?>
                 </h3>
-                <p><?php  echo $al->desc2?></p>
+                <pre style="font-size: 16px; font-family: Optima;
+    font-style: normal;
+    font-variant: normal;" ><p><?php  echo $al->desc2?></p></pre>
             </div>
             <div class="col-md-4 portfolio-item">
                 <a <?php echo $al->to_slides(3)?>>
                     <img class="img-responsive" src="<?php echo $al->cover3()?>" alt="">
                 </a>
                 <h3>
-                    <a ><?php if(isset($al->album3))echo $al->album3?></a>
+                    <?php if(isset($al->album3))echo $al->album3?>
                 </h3>
-                <p><?php echo $al->desc3?></p>
+               <pre style="font-size: 16px; font-family: Optima;
+    font-style: normal;
+    font-variant: normal;" > <p><?php echo $al->desc3?></p></pre>
             </div>
         </div>
         <!-- /.row -->
@@ -170,10 +182,16 @@ $al->fetch_photos();
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">
+                <h1 style="font-family: 'Rammetto One';
+                font-size: 50px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 500;
+                line-height: 26.4px;  color: #f8f8f8;" >
                     Magazine
-                    <small style="color: rgb(46, 51, 53);font-style: oblique;">Articles</small>
+
                 </h1>
+                <br>
                 <iframe width="150%" height="700px" src="blogy.php" name="iframe_a"></iframe>
             </div>
 
@@ -192,7 +210,12 @@ $al->fetch_photos();
     </div>
     <!-- /.container -->
 
-                <h2 strong>
+                <h2 strong style="font-family: 'Rammetto One';
+    font-size: 50px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;  color: #f8f8f8;">
                     What is K-Vector?
                 </h2>
                 
