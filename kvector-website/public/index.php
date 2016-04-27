@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html class="full" lang="en">
 <?php require_once ("../includes/functions.php");    //includes of all needed classes and functions
       require_once ("../includes/pagination.php");
       require_once ("../includes/albums.php");
@@ -16,7 +17,7 @@ $al = new albums($pg->current_page ,$database->no_albums(),$database);
 $al->fetch_photos();
 ?>
 
-<html lang="en">
+
 
 <head>
 
@@ -33,7 +34,7 @@ $al->fetch_photos();
 
     <!-- Custom CSS -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
-
+    <link href="css/full.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,7 +44,7 @@ $al->fetch_photos();
 
 </head>
 
-<body>
+<body class="full">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -84,7 +85,7 @@ $al->fetch_photos();
 
 <a name="Home"></a>
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" >
 
         <!-- Page Heading -->
         <div class="row">
@@ -94,12 +95,17 @@ $al->fetch_photos();
   
     
   
-            <h1 class="intro-message"> K-Vector Club <small style="color: rgb(12, 10, 10)  font-weight: bold;  font-style: oblique;">#NeverTooLate</small></h1>
+            <h1 class="intro-message" style="color: #f8f8f8;"> K-Vector Club <small style="color: rgb(12, 10, 10)  font-weight: bold;  font-style: oblique;">#NeverTooLate</small></h1>
    <!-- </div>
 </div>-->
 
-                <h1 class="page-header">Photo Gallery
-                    <small>Albums</small>
+                <h1   style="font-family: 'Rammetto One';
+	font-size: 50px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;  color: #f8f8f8;">Photo Gallery
+                    <small style="color: rgb(46, 51, 53);font-style: oblique;">Albums</small>
                 </h1>
             </div>
         </div>
@@ -137,8 +143,7 @@ $al->fetch_photos();
             </div>
         </div>
         <!-- /.row -->
-        <hr>
-
+        
 
         <!-- Pagination -->
         <a name="Magazine"></a>
@@ -167,14 +172,14 @@ $al->fetch_photos();
 
                 <h1 class="page-header">
                     Magazine
-                    <small>Articles</small>
+                    <small style="color: rgb(46, 51, 53);font-style: oblique;">Articles</small>
                 </h1>
-                <iframe width="150%" height="400px" src="blogy.php" name="iframe_a"></iframe>
+                <iframe width="150%" height="700px" src="blogy.php" name="iframe_a"></iframe>
             </div>
 
             
         
-        <hr>
+        
         <a  name="About"></a>
         <br>
         <br>
@@ -210,7 +215,7 @@ $al->fetch_photos();
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h2 strong>Contact us:</h2>
+                    <h2 strong style="color: rgb(46, 51, 53);">Contact us:</h2>
                  <br>
                 <br>
                     <p strong >&#9990; Phone:<?php echo $ab->t_number ?></p>
