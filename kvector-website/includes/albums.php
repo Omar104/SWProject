@@ -118,21 +118,21 @@ class albums
     function cover1()        //return name of cover photo of the album
     {
 
-        if(isset($this->album1))
+        if(isset($this->album1) && sizeof($this->a1_photo ) > 0)
         return  "../../images/album1/"."{$this->a1_photo[0]}";
         else
             return "../../images/no_sign.jpg";
     }
     function cover2()         //return name of cover photo of the album
     {
-        if(isset($this->album2))
+        if(isset($this->album2)&& sizeof($this->a2_photo )> 0)
         return "../../images/album2/"."{$this->a2_photo[0]}";
         else
             return "../../images/no_sign.jpg";
     }
     function cover3()        //return name of cover photo of the album
     {
-        if(isset($this->album3))
+        if(isset($this->album3)&& sizeof($this->a3_photo) > 0)
         return  "../../images/album3/"."{$this->a3_photo[0]}";
         else
             return "../../images/no_sign.jpg";
@@ -190,18 +190,18 @@ class albums
     function to_slides($num) // determines if the album cover is a link to the slide show for the choosen album
     {
         if($num == 1) {
-            if(isset($this->album1))
+            if(isset($this->album1)&& sizeof($this->a1_photo )> 0)
             echo "href=" . '"' . "slider.php?al={$this->album1}&cp={$this->active_page}&desc={$num}" . '"';
         else
             echo "";
         }
         if($num == 2) {
-            if(isset($this->album2))
+            if(isset($this->album2)&& sizeof($this->a2_photo ) > 0)
                 echo "href=" . '"' . "slider.php?al={$this->album2}&cp={$this->active_page}&desc={$num}" . '"';
             else
                 echo "";
         } if($num == 3) {
-        if(isset($this->album3))
+        if(isset($this->album3)&& sizeof($this->a2_photo )> 0)
             echo "href=" . '"' . "slider.php?al={$this->album3}&cp={$this->active_page}&desc={$num}" . '"';
         else
             echo "";

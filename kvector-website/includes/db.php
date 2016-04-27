@@ -16,7 +16,7 @@ class datbase
         else
             return datbase::$db;
     }
-    function connect()                           // connect to database function
+    private function connect()                           // connect to database function
 
     {
         $host = "localhost";
@@ -37,14 +37,7 @@ class datbase
         $this->result = NULL;
         $this->row = NULL;
     }
-    function empty()
-    {
-        (mysqli_num_rows($this->result)== 0? true:false );
-    }                            // check the number of rows returned from the query
-    function no_rows()                 // return number of rows retrieved from query
-    {
-        return mysqli_num_rows($this->result);
-    }
+
     function fetch_row()            // return row as a result of the query
     {
         if ($this->row = mysqli_fetch_assoc($this->result))
@@ -99,7 +92,7 @@ class datbase
         $this->confirm_query();
         return  $this->fetch_row();
     }
-    function get_desc($al)
+    function get_desc($al)                   // get description of the album
     {
         $this->last_query =" select description from albums where name ="."'"."{$al}"."'";
         $this->result = mysqli_query($this->connection,$this->last_query);
@@ -107,7 +100,7 @@ class datbase
         $this->row = $this->fetch_row();
         return $this->row['description'];
     }
-    function count_blogs()
+    function count_blogs()            // return number of blogs in the database
     {
         $this->last_query="select count(*) from blog";
         $this->result = mysqli_query($this->connection,$this->last_query);
@@ -115,7 +108,7 @@ class datbase
         $this->row = $this->fetch_row();
         return $this->row["count(*)"];
     }
-    function get_blog($off)
+    function get_blog($off)        // get the record of the blog of offset = $off
     {
         if ($off == 0)
             $this->last_query ="select * from blog LIMIT 1 ";
