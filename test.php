@@ -14,9 +14,6 @@ require_once ("kvector-website/includes/db.php");
     <body>
 
 <?php
-$tmp = "khaled@#@#";
-filter_var($tmp,FILTER_SANITIZE_ENCODED,FILTER_FLAG_STRIP_HIGH);
- echo $tmp;
 
 ?>
 </body>

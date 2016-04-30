@@ -1,6 +1,24 @@
 <?php
 require_once ("../includes/functions.php");
-require_once ("../includes/db.php");
+require_once ("../includes/validation.php");
+if(!isset($database))
+    die("couldnt connect to database ".mysqli_error($database->connection));
+if(isset($_POST['submit']))
+{
+    validation::validate_sp($_POST['Username'],$_POST['Password']);
+    if(!empty(validation::$errorList))
+    {
+        report_error();
+    }
+    validation::validate_exist_user($_POST['Username'],$_POST['Password']);
+    if(!empty(validation::$errorList))
+    {
+        report_error();
+    }
+    $_SESSION['Username'] = $_POST['Username'];
+    redirect("7amada.php");  /// lesa hatet3ml
+}
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -80,17 +98,17 @@ require_once ("../includes/db.php");
                         <h1>Admin Panel</h1>
                         <h3>Management System</h3>
                         <hr class="intro-divider">
-                        <form autocomplete="on" method="post">
+                        <form action="kvector-adminpanel.php" autocomplete="on" method="post">
 
-                            <label for="Username" style="font-size: 115%" >
-                                Username:
+                            <label for="Username" style="font-size: 130%" >
+                                Username :
                             </label>
-                            <input autocomplete="on"  maxlength="50" type="text" id="Username" name="Username" placeholder="Username" required></input><br>
-                            <label for="Password" style="font-size: 115%" >
-                                Password:
+                            <input autocomplete="on"  maxlength="30" minlength="4" type="text" id="Username" name="Username" placeholder="Username" required/><br>
+                            <label for="Password" style="font-size: 130%" >
+                                Password :
                             </label>
-                            <input autocomplete="off" maxlength="16" type="password" id="Password" name="Password" placeholder="Password" required></input><br><br>
-                            <input type="button" value="Login"  href="default.asp" target="_blank"></input><br><br>
+                            <input autocomplete="off" maxlength="15" minlength="4" type="password" id="Password" name="Password" placeholder="Password" required/><br><br>
+                            <button type="submit" name="submit" class="btn btn-default btn-lg"   style="font-family: 'Rammetto One';font-size:20px;font-style: normal;font-variant: normal;font-weight: 600;line-height: 26.4px;">Login</button><br><br>
 
 
                         </form>

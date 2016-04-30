@@ -16,7 +16,7 @@ class datbase
         else
             return datbase::$db;
     }
-    function connect()                           // connect to database function
+    private function connect()                           // connect to database function
 
     {
         $host = "localhost";
@@ -37,14 +37,7 @@ class datbase
         $this->result = NULL;
         $this->row = NULL;
     }
-    function empty()
-    {
-        (mysqli_num_rows($this->result)== 0? true:false );
-    }                            // check the number of rows returned from the query
-    function no_rows()                 // return number of rows retrieved from query
-    {
-        return mysqli_num_rows($this->result);
-    }
+
     function fetch_row()            // return row as a result of the query
     {
         if ($this->row = mysqli_fetch_assoc($this->result))
@@ -125,6 +118,25 @@ class datbase
         $this->confirm_query();
         return $this->fetch_row();
 
+    }
+    function is_valid_user($user_name)      // return 1 if user exist in database and 0 otherwise
+    {
+        $this->last_query = "select count(*) from admin ";
+        $this->last_query .= "where username = '{$user_name}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        $this->row = $this->fetch_row();
+        return $this->row["count(*)"];
+    }
+    function is_valid_password($username, $password)   // return TRUE is password matches the username password
+    {
+        $this->last_query = "select count(*) from admin ";
+        $this->last_query .= "where username = '{$username}' ";
+        $this->last_query .= "and pass = '{$password}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        $this->row = $this->fetch_row();
+        return $this->row["count(*)"] == 1;
     }
 }
 
