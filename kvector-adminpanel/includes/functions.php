@@ -7,6 +7,7 @@ function redirect($loc = NULL)
         exit;
     }
 }
+
 function report_error($s)      // function to report errors to the user
 {
 
