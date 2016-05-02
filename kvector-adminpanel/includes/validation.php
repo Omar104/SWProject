@@ -6,7 +6,7 @@ class validation  // class to validate user input
 
     static $errorList = array(); //array of displayed erros
 
-  
+
     static function validate_sp($userName, $passWord)   // validate user input
     {
         if(ctype_alnum($userName) == false)         //username doesnt contain special characters
@@ -18,7 +18,7 @@ class validation  // class to validate user input
             validation::$errorList[] = "passWord contains invalid characters(special characters) ";
         }
     }
-    
+
     static function validate_exist_user($userName, $passWord)   // function validate if the username and the password correct or not
     {
         global $database;
@@ -35,7 +35,7 @@ class validation  // class to validate user input
         }
 
     }
-    
+
 }
 
 ?>
