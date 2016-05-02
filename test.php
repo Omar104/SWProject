@@ -1,24 +1,16 @@
-<?php
-require_once ("kvector-website/includes/db.php");
-
-?>
-
-
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
+<head>
+    <title>Forms</title>
+</head>
+<body>
+<?php print_r($_POST);?>
 
-    <head>
+<form action="test.php" method="post">
+    <input type="text" name="user" >
+    <input type="text" name="pass">
+    <input  type="submit" value="submit">
+</form>
 
-
-    </head>
-    <body>
-
-<?php
-
-?>
 </body>
-    </html>
-
-<?php
-$database->close();
-?>
+</html>

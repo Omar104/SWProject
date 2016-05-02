@@ -33,6 +33,7 @@ class validation  // class to validate user input
                 validation::$errorList[] = "invalid password";
             }
         }
+
     }
     
 }
