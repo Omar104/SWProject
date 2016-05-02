@@ -3,21 +3,27 @@ require_once ("../includes/functions.php");
 require_once ("../includes/validation.php");
 if(!isset($database))
     die("couldnt connect to database ".mysqli_error($database->connection));
+
 if(isset($_POST['submit']))
 {
-    validation::validate_sp($_POST['Username'],$_POST['Password']);
+
+
+    validation::validate_sp($_POST['username'],$_POST['password']);
     if(!empty(validation::$errorList))
     {
         report_error();
     }
-    validation::validate_exist_user($_POST['Username'],$_POST['Password']);
-    if(!empty(validation::$errorList))
+    else
     {
-        report_error();
+        validation::validate_exist_user($_POST['username'], $_POST['password']);
+        if (!empty(validation::$errorList)) {
+            report_error();
+        }
     }
-    $_SESSION['Username'] = $_POST['Username'];
-    redirect("7amada.php");  /// lesa hatet3ml
+    $_SESSION['username'] = $_POST['username'];
+    $_POST = array();
 }
+
 
 ?>
     <!DOCTYPE html>
@@ -98,19 +104,17 @@ if(isset($_POST['submit']))
                         <h1>Admin Panel</h1>
                         <h3>Management System</h3>
                         <hr class="intro-divider">
-                        <form action="kvector-adminpanel.php" autocomplete="on" method="post">
+                        <form  method="post" action="kvector-adminpanel.php" >
 
                             <label for="Username" style="font-size: 130%" >
                                 Username :
                             </label>
-                            <input autocomplete="on"  maxlength="30" minlength="4" type="text" id="Username" name="Username" placeholder="Username" required/><br>
+                            <input autocomplete="on"  maxlength="30" minlength="4" type="text" id="Username" name="username" placeholder="Username" required/><br>
                             <label for="Password" style="font-size: 130%" >
-                                Password :
+                                  Password :
                             </label>
-                            <input autocomplete="off" maxlength="15" minlength="4" type="password" id="Password" name="Password" placeholder="Password" required/><br><br>
+                            <input autocomplete="off" maxlength="15" minlength="4" type="password" id="Password" name="password" placeholder="Password" required/><br><br>
                             <button type="submit" name="submit" class="btn btn-default btn-lg"   style="font-family: 'Rammetto One';font-size:20px;font-style: normal;font-variant: normal;font-weight: 600;line-height: 26.4px;">Login</button><br><br>
-
-
                         </form>
 
                     </div>
@@ -166,4 +170,4 @@ if(isset($_POST['submit']))
     </html>
 
 
-<?php mysqli_close($connection);?>
+<?php mysqli_close($database->connection);?>
