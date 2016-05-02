@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
 
         <!-- Custom CSS -->
         <link href="css/landing-page.css" rel="stylesheet">
-
+        <script src="js/jquery.js"></script>
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -111,9 +111,9 @@ if(isset($_POST['submit']))
                             </label>
                             <input autocomplete="on"  maxlength="30" minlength="4" type="text" id="Username" name="username" placeholder="Username" required/><br>
                             <label for="Password" style="font-size: 130%" >
-                                  Password :
+                                Password :
                             </label>
-                            <input autocomplete="off" maxlength="15" minlength="4" type="password" id="Password" name="password" placeholder="Password" required/><br><br>
+                            <input autocomplete="off"  maxlength="15" minlength="4" type="password" id="Password" name="password" placeholder="Password" required/><br><br>
                             <button type="submit" name="submit" class="btn btn-default btn-lg"   style="font-family: 'Rammetto One';font-size:20px;font-style: normal;font-variant: normal;font-weight: 600;line-height: 26.4px;">Login</button><br><br>
                         </form>
 
