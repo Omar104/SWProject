@@ -4,11 +4,16 @@ require_once ("../includes/validation.php");
 if(!isset($database))
     die("couldnt connect to database ".mysqli_error($database->connection));
 
+if(isset($_GET['dl']))
+{
+    session_start();
+    session_unset();
+    session_destroy();
+}
+
 if(isset($_POST['submit']))
 {
-
-
-    validation::validate_sp($_POST['username'],$_POST['password']);
+    validation::validate_sp(array('username'=>$_POST['username'],'password'=>$_POST['password']));
     if(!empty(validation::$errorList))
     {
         report_error();
@@ -16,15 +21,19 @@ if(isset($_POST['submit']))
     else
     {
         validation::validate_exist_user($_POST['username'], $_POST['password']);
-        if (!empty(validation::$errorList)) {
+        if (!empty(validation::$errorList))
+        {
             report_error();
         }
     }
-    $_SESSION['username'] = $_POST['username'];
+    if (empty(validation::$errorList))
+    {
+        session_start();
+        $_SESSION['username'] = $_POST['username'];
+        redirect("home.php");
+    }
     $_POST = array();
 }
-
-
 ?>
     <!DOCTYPE html>
     <html lang="en">

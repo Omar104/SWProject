@@ -7,15 +7,13 @@ class validation  // class to validate user input
     static $errorList = array(); //array of displayed erros
 
 
-    static function validate_sp($userName, $passWord)   // validate user input
+    static function validate_sp($input_strings)   // validate user input
     {
-        if(ctype_alnum($userName) == false)         //username doesnt contain special characters
-        {
-            validation::$errorList[] = "username contains invalid characters(special characters) ";
-        }
-        if(ctype_alnum($passWord) == false)        //password doesnt contain special characters 
-        {
-            validation::$errorList[] = "passWord contains invalid characters(special characters) ";
+        foreach ($input_strings as $key=> $x) {
+            if (ctype_alnum($x) == false)         //username doesnt contain special characters
+            {
+                validation::$errorList[] = " {$key} invalid characters(special characters) ";
+            }
         }
     }
 
@@ -34,6 +32,31 @@ class validation  // class to validate user input
             }
         }
 
+    }
+
+    static function is_valid_new_user_name($admin_info)   /// function check if input username is unique and the 2 passwords matches
+    {
+        global $database;
+        if($database->is_valid_user($admin_info['Username']) == 1)
+        {
+            validation::$errorList[] = "username already exists";
+        }
+        if($admin_info['Password'] !== $admin_info['Password2'])
+        {
+            validation::$errorList[] = "password does not match";
+        }
+    }
+    static function is_valid_existing_user_name($admin_info)   /// function check if input username is unique and the 2 passwords matches
+    {
+        global $database;
+        if($database->is_valid_user($admin_info['Username']) == 0)
+        {
+            validation::$errorList[] = "username does not exist";
+        }
+        if($admin_info['Password'] !== $database->get_super_admin_pass()['pass'])
+        {
+            validation::$errorList[] = "password does not match";
+        }
     }
 
 }
