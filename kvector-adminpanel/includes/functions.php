@@ -10,7 +10,7 @@ function redirect($loc = NULL)
     }
 }
 
-function report_error()      // function to report errors to the user
+function report_error()      // function to report errors to the user about user login info
 {
     $output="";
     $output.=" <div class=\"container\" style=\"position: absolute; top: 550px;  left: 400px; padding-right: 550px\">";

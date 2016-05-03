@@ -138,6 +138,35 @@ class datbase
         $this->row = $this->fetch_row();
         return $this->row["count(*)"] == 1;
     }
+    function get_admin_name($username)
+    {
+        $this->last_query = "select first_name, last_name, super_admin from admin ";
+        $this->last_query .= "where username = '{$username}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        return $this->row = $this->fetch_row();
+    }
+    function insert_new_admin($admin_info)
+    {
+        $this->last_query = "INSERT INTO `admin`( `username`, `pass`, `first_name`, `last_name`) VALUES ";
+        $this->last_query .="('{$admin_info['Username']}','{$admin_info['Password']}','{$admin_info['firstname']}','{$admin_info['lastname']}')";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+    function remove_admin($userName)
+    {
+        $this->last_query = "DELETE FROM `admin` WHERE username = '{$userName}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+    function get_super_admin_pass()
+    {
+        $this->last_query = "select pass from admin ";
+        $this->last_query .= "where super_admin = 1";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        return $this->row = $this->fetch_row();
+    }
 }
 
 

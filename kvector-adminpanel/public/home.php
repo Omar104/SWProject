@@ -2,7 +2,7 @@
 
 
 
-    <h1 class="intro-message" style="color: #f8f8f8;">WELCOME OMAR</h1>
+    <h1 class="intro-message" style="color: #f8f8f8;">WELCOME <?php echo strtoupper($cur_user->getFirstName()) ?></h1>
     <img class="img-responsive" src="img/profile.png" alt="" style="position: absolute;left: 640px;top: 200px;">
 
     <!-- /#page-wrapper -->

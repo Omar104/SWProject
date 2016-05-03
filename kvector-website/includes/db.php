@@ -30,7 +30,7 @@ class datbase
         }
     }
 
-   private function  __construct()                                 // constructor to automatically connect to databse
+    private function  __construct()                                 // constructor to automatically connect to databse
     {
         $this->connect();
         $this->last_query = NULL;
@@ -118,6 +118,19 @@ class datbase
         $this->confirm_query();
         return $this->fetch_row();
 
+    }
+    function get_admin_name($admin_user_name)  // function to get the admin full name and if he is a super
+    {
+        $name = array();
+        $this->last_query  = "select first_name ,last_name ,super_admin from admin ";
+        $this->last_query .= "where username = '{$admin_user_name}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        $this->row = $this->fetch_row();
+        $name["first_name"] = $this->row["first_name"];
+        $name["last_name"] = $this->row["last_name"];
+        $name["isSuper"] = $this->row["super_admin"];
+        return $name;
     }
 }
 

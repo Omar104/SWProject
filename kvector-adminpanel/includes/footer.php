@@ -1,3 +1,26 @@
+<?php
+require_once("../includes/functions.php");
+require_once ("validation.php");
+require_once("user.php");
+?>
+
+<?php
+    // if session not set, go back to login page
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+        redirect("kvector-adminpanel.php");
+    }
+?>
+
+<?php
+    // get the admin full name to put it in the bar
+    $admin_name = $database->get_admin_name($_SESSION['username']);
+    $cur_user = new user($admin_name['first_name'], $admin_name['last_name'], $_SESSION['username'], $admin_name['super_admin']);
+    unset($admin_name);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -62,7 +85,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                 <div class="media-body">
-                                    <h5 class="media-heading"><strong>Omar Sayed</strong>
+                                    <h5 class="media-heading"><strong><?php echo strtolower($cur_user->getFirstName()) ." ". strtolower($cur_user->getLastName()) ?></strong>
                                     </h5>
                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -77,7 +100,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                 <div class="media-body">
-                                    <h5 class="media-heading"><strong>Omar Sayed</strong>
+                                    <h5 class="media-heading"><strong><?php echo strtolower($cur_user->getFirstName()) ." ". strtolower($cur_user->getLastName()) ?></strong>
                                     </h5>
                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -92,7 +115,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                 <div class="media-body">
-                                    <h5 class="media-heading"><strong>Omar Sayed</strong>
+                                    <h5 class="media-heading"><strong><?php echo strtolower($cur_user->getFirstName()) ." ". strtolower($cur_user->getLastName()) ?></strong>
                                     </h5>
                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -133,7 +156,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Omar Sayed <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo strtolower($cur_user->getFirstName()) ." ". strtolower($cur_user->getLastName()) ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -146,20 +169,24 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="../public/kvector-adminpanel.php?dl=1"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
         </ul>
+        <?php   // display the admin tap only if this is a super admin
+        $output_admin_bar ="<li ><a  href=\"../public/admins.php\"><i class=\"fa fa-fw fa-cog\"></i> Admins</a></li>";
+        ?>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
                     <a class="navbar-brand" href="../public/home.php"><i class="fa fa-fw fa-home"></i> Admin Panel</a>
                 </li>
-                <li >
-                    <a href="../public/admins.php"><i class="fa fa-fw fa-cog"></i> Admins</a>
-                </li>
+                <?php  // if super admin -> display admin tap
+                if($cur_user->getSuper())
+                    echo $output_admin_bar;
+                ?>
                 <li>
                     <a href="charts.html"><i class="fa fa-fw fa-pencil"></i> Blogs</a>
                 </li>
