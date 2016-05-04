@@ -18,7 +18,7 @@
                     <a href="blogs.php"><i class="fa fa-fw fa-pencil"></i> Blogs</a>
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-picture-o"></i> Albums</a>
+                    <a href="albums.php"><i class="fa fa-fw fa-picture-o"></i> Albums</a>
                 </li>
                 <li>
                     <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -35,13 +35,9 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                 <li>
+                    <a href="logfile.php"><i class="fa fa-fw fa-file"></i> LogFile</a>
                 </li>
-                <li>
-                    <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                </li>
-
             </ul>
             <!-- Footer     -->
 

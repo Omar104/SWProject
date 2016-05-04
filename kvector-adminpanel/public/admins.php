@@ -49,6 +49,54 @@
     }
 ?>
 
+
+
+<?php   // display the admin tap only if this is a super admin
+        $output_admin_bar ="<li class=\"active\"><a  href=\"../public/admins.php\"><i class=\"fa fa-fw fa-cog\"></i> Admins</a></li>";
+        ?>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li >
+                    <a class="navbar-brand" href="../public/home.php"><i class="fa fa-fw fa-home"></i> Admin Panel</a>
+                </li>
+                <?php  // if super admin -> display admin tap
+                if($cur_user->getSuper())
+                    echo $output_admin_bar;
+                ?>
+                <li>
+                    <a href="blogs.php"><i class="fa fa-fw fa-pencil"></i> Blogs</a>
+                </li>
+                <li>
+                    <a href="albums.php"><i class="fa fa-fw fa-picture-o"></i> Albums</a>
+                </li>
+                <li>
+                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-font"></i> About <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse">
+                        <li>
+                            <a href="about.php">About Section</a>
+                        </li>
+                        <li>
+                            <a href="contact.php">Contact Section</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="logfile.php"><i class="fa fa-fw fa-file"></i> LogFile</a>
+                </li>
+
+            </ul>
+            <!-- Footer     -->
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    <br>
+
         <div id="page-wrapper">
 
             <div class="container-fluid">

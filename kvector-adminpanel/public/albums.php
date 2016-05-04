@@ -13,10 +13,10 @@
                 if($cur_user->getSuper())
                     echo $output_admin_bar;
                 ?>
-                <li class="active">
+                <li >
                     <a href="blogs.php"><i class="fa fa-fw fa-pencil"></i> Blogs</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="albums.php"><i class="fa fa-fw fa-picture-o"></i> Albums</a>
                 </li>
                 <li>
@@ -55,7 +55,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1   style="color: #f8f8f8;font-weight: bold;text-align: center;  margin: 0;text-shadow: 2px 2px 3px rgba(0,0,0,0.6);font-size: 4em;">
-                    Manage Blogs
+                    Manage Albums
                 </h1>
 
             </div>
@@ -64,7 +64,7 @@
 
         
                 <h3 class="page-header">
-                    Add New Blogs
+                    Add New Album
                 </h3>
 
         
@@ -74,81 +74,100 @@
                 <form role="form">
 
                     <div class="form-group">
-                        <label>Blog Title</label>
-                         <input class="form-control" maxlength="20" minlength="3" type="text" id="Blogtitle" name="Blogtitle" placeholder="Blog Title" required>
-                       <label>Blog Text</label>
-                                <textarea class="form-control" rows="10" name="textarea" placeholder="Enter text here ..." required></textarea>
-                        <p class="help-block">Enter the blog here.</p>
+                        <label>Album Title</label>
+                         <input class="form-control" maxlength="20" minlength="3" type="text" id="albumtitle" name="albumtitle" placeholder="Album Title" required>
+                         <br>
+                       <label>Upload photo</label>
+                         <input type="file" name="fileToUpload" value="Upload Photo" id="fileToUpload">
+    
+   <br>
+                       <label>Description</label>
+                                <textarea class="form-control" rows="10" name="textarea" placeholder="Write description here ..." required></textarea>
+                        
                     <br>
                     
-                    <button type="submit" class="btn btn-primary">Add Blog</button>
+                    <button type="submit" class="btn btn-primary">Add Album</button>
                     <button type="reset" class="btn btn-info">Reset</button>
                     </div>
 
                 </form>
+                <br>
+
                   
 
                 <h3 class="page-header">
-                    Remove Blogs
+                    Edit Album 
+                </h3>
+                  
+
+
+                <form role="form">
+
+                    <div class="form-group">
+                        <br>
+                            
+                                <label>Select Album</label>
+                                <select class="form-control">
+                                    <option>Album 1</option>
+                                    <option>Album 2</option>
+                                    <option>Album 3</option>
+                                    <option>Album 4</option>
+                                    <option>Album 5</option>
+                                </select>
+                            <br>
+                       <label>Upload photo</label>
+                         <input type="file" name="fileToUpload" value="Upload Photo" id="fileToUpload">
+                         <br>
+    
+                       <label>Edit Album Title</label>
+                         <input class="form-control" maxlength="20" minlength="3" type="text" id="albumtitle2" name="albumtitle2" placeholder="Album Title" >
+                         <br>
+
+                       <label>Edit description</label>
+                                <textarea class="form-control" rows="10" name="textarea" placeholder="Write description here ..." ></textarea>
+                        
+                    <br>
+                    
+                    <button type="submit" class="btn btn-primary">Update Album</button>
+                    <button type="reset" class="btn btn-info">Reset</button>
+                    </div>
+
+                </form>
+
+
+                <h3 class="page-header">
+                    Delete Album
                 </h3>
 
                 <form role="form">
 
                     <div class="form-group">
-                        <label><h3>Blog Title</h3></label>
-                         <input class="form-control" maxlength="20" minlength="3" type="text" id="Blogtitle" name="Blogtitle" placeholder="Blog Title" required>
+                        <label><h3>Album Title</h3></label>
+                         <input class="form-control" maxlength="20" minlength="3" type="text" id="Blogtitle" name="Blogtitle" placeholder="Album Title" required>
                        
-                        <p class="help-block">Enter the blog title you wish to remove.</p>
+                        <p class="help-block">Enter the album title you wish to delete.</p>
                     <br>
-                    <button type="submit" class="btn btn-danger"data-toggle="modal" data-target="#myModal2">Remove Blog</button>
+                    <button type="submit" class="btn btn-danger">Delete Album</button>
                     <button type="reset" class="btn btn-warning">Reset</button>
-
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="myModalLabel" style="color: rgb(0,0,0);">Are you sure ?</h4>
-                                </div>
-                                <div class="modal-body"style="color: rgb(0,0,0);">
-                                    Are you sure you want to remove this blog?
-                                    This blog will be removed from the website permanently.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Yes I am sure</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
                     </div>
                     <br>
                     <br>
                     <br>
+                    
 
                 </form>
-
-
-
-
-
-            </div>
-
-
-
+                </div>
+        
             <div class="col-lg-6">
-                <h2>Current Blogs</h2>
+                <h2>Current Albums</h2>
                 <div class="table-responsive">
 
                     <table class="table table-bordered ">
                         <thead>
                         <tr>
-                            <th>Blog Title</th>
+                            <th>Album Title</th>
                             <th>Added by</th>
+                            <th>Number of photos</th>
                             <th>date</th>
                         </tr>
                         </thead>
@@ -156,24 +175,28 @@
                         <tr>
                             <td>Omarove</td>
                             <td>Omar Sayed</td>
+                            <td>26</td>
                             <td>2016</td>
                             
                         </tr>
                         <tr>
                             <td>Omarove</td>
                             <td>Omar Sayed</td>
+                            <td>26</td>
                             <td>2016</td>
                             
                         </tr>
                         <tr>
                             <td>Omarove</td>
                             <td>Omar Sayed</td>
+                            <td>26</td>
                             <td>2016</td>
                             
                         </tr>
                         <tr>
                             <td>Omarove</td>
                             <td>Omar Sayed</td>
+                            <td>26</td>
                             <td>2016</td>
                             
                         </tr>
@@ -192,7 +215,6 @@
 
 
         </div>
-    </div>
     <!-- /.row -->
 
 </div>
