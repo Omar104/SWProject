@@ -63,6 +63,27 @@ class validation  // class to validate user input
             validation::$errorList[] = "password does not match";
         }
     }
+    static function is_valid_email($e)      //function checks if email is valid or not
+    {
+        if (!filter_var($e, FILTER_VALIDATE_EMAIL)) {
+            validation::$errorList[] = "invalid E-mail";
+        }
+    }
+
+    static function is_valid_number($number)    //function checks if phone number is valid or not
+    {
+        if(!ctype_digit($number)) {
+            // $phone is invalid
+            validation::$errorList[]="invalid phone number";
+        }
+    }
+    static function is_valid_link($lin)         //function checks if link is valid or not
+    {
+        if (!filter_var($lin ,FILTER_VALIDATE_URL)) {
+            // $URL is invalid
+            validation::$errorList[]="invalid link";
+        }
+    }
 
 }
 

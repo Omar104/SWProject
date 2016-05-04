@@ -17,7 +17,13 @@
         if(empty(validation::$errorList))
         {
             $database->insert_new_admin($add_admin_info);
+            // log
+            $log->set_action("Admin {$add_admin_info['Username']} was added");
+            $log->write_action();
+            //
             // message successful
+            $message_array = array("Admin {$add_admin_info['Username']} Successfully added");
+            feedback($message_array);
         }
         else
         {

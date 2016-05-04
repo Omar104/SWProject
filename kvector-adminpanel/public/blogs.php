@@ -1,5 +1,29 @@
 <?php require_once ("../includes/footer.php"); ?>
+<?php
+if(isset($_POST["removeblog"]))
+{
+    $tmp = array($_POST["Blogtitle"]);
+    validation::validate_sp($tmp);
+    if(empty(validation::$errorList))
+    {
+        if($database->exist_blog($_POST["Blogtitle"]))
+        {
+            $database->remove_blog($_POST['Blogtitle']);
+            $tmp = array("blog removed succesfully");
+           echo feedback($tmp);
+        }
+        else
+        {
+            validation::$errorList[] = "blog doesnt exist";
+           echo  feedback(validation::$errorList);
+        }
 
+    }
+    else
+        echo feedback(validation::$errorList);
+}
+
+?>
 <?php   // display the admin tap only if this is a super admin
         $output_admin_bar ="<li ><a  href=\"../public/admins.php\"><i class=\"fa fa-fw fa-cog\"></i> Admins</a></li>";
         ?>
@@ -34,10 +58,13 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="logfile.php"><i class="fa fa-fw fa-file"></i> LogFile</a>
-                </li>
-                
+                <?php   // display the admin tap only if this is a super admin
+                $output_admin_log ="  <li>
+                    <a href=\"logfile.php\"><i class=\"fa fa-fw fa-file\"></i> LogFile</a>
+                </li>";
+                if($cur_user->getSuper())
+                echo $output_admin_log;
+                ?>
 
             </ul>
             <!-- Footer     -->
@@ -71,7 +98,7 @@
         <div class="row">
             <div class="col-lg-6">
 
-                <form role="form">
+                <form role="form" method="post">
 
                     <div class="form-group">
                         <label>Blog Title</label>
@@ -92,7 +119,7 @@
                     Remove Blogs
                 </h3>
 
-                <form role="form">
+                <form role="form" method="post">
 
                     <div class="form-group">
                         <label><h3>Blog Title</h3></label>
@@ -100,35 +127,9 @@
                        
                         <p class="help-block">Enter the blog title you wish to remove.</p>
                     <br>
-                    <button type="submit" class="btn btn-danger"data-toggle="modal" data-target="#myModal2">Remove Blog</button>
+                    <button type="submit" name ="removeblog" class="btn btn-danger"data-toggle="modal" data-target="#myModal2">Remove Blog</button>
                     <button type="reset" class="btn btn-warning">Reset</button>
-
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="myModalLabel" style="color: rgb(0,0,0);">Are you sure ?</h4>
-                                </div>
-                                <div class="modal-body"style="color: rgb(0,0,0);">
-                                    Are you sure you want to remove this blog?
-                                    This blog will be removed from the website permanently.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Yes I am sure</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
+                                   </div>
 
                 </form>
 
@@ -148,35 +149,15 @@
                         <thead>
                         <tr>
                             <th>Blog Title</th>
-                            <th>Added by</th>
-                            <th>date</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Omarove</td>
-                            <td>Omar Sayed</td>
-                            <td>2016</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Omarove</td>
-                            <td>Omar Sayed</td>
-                            <td>2016</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Omarove</td>
-                            <td>Omar Sayed</td>
-                            <td>2016</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Omarove</td>
-                            <td>Omar Sayed</td>
-                            <td>2016</td>
-                            
-                        </tr>
+                       <?php $database->get_all_blogs();
+                       while( $tmp = $database->fetch_row())
+                            echo"<tr>
+                            <td>{$tmp['title']}</td>
+                        </tr>";
+                       ?>
                         </tbody>
                     </table>
 

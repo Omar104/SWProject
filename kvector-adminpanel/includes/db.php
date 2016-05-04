@@ -146,20 +146,20 @@ class datbase
         $this->confirm_query();
         return $this->row = $this->fetch_row();
     }
-    function insert_new_admin($admin_info)
+    function insert_new_admin($admin_info) //inserts new admin
     {
         $this->last_query = "INSERT INTO `admin`( `username`, `pass`, `first_name`, `last_name`) VALUES ";
         $this->last_query .="('{$admin_info['Username']}','{$admin_info['Password']}','{$admin_info['firstname']}','{$admin_info['lastname']}')";
         $this->result = mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
     }
-    function remove_admin($userName)
+    function remove_admin($userName)  //remove admin
     {
         $this->last_query = "DELETE FROM `admin` WHERE username = '{$userName}'";
         $this->result = mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
     }
-    function get_super_admin_pass()
+    function get_super_admin_pass()       //get the super_Admins pass
     {
         $this->last_query = "select pass from admin ";
         $this->last_query .= "where super_admin = 1";
@@ -167,12 +167,53 @@ class datbase
         $this->confirm_query();
         return $this->row = $this->fetch_row();
     }
-    function set_pass($user,$pass)
+    function set_pass($user,$pass)  // set te new users password
     {
         $this->last_query="update admin set pass='{$pass}'WHERE username ='{$user}' ";
         $this->result=mysqli_query($this->connection,$this->last_query);
         $this->confirm_query();
     }
+
+    function exist_blog($title) //checks if the the blog exists or not
+    {
+        $this->last_query ="select count(*) from blog where title ='{$title}'";
+        $this->result= mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+        $this->row = $this->fetch_row();
+        return $this->row["count(*)"];
+    }
+    function  remove_blog($t) //removes blogs accroding to the given title
+    {
+        $this->last_query="DELETE FROM `blog` WHERE title ='{$t}'";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+    function get_all_blogs() //retrives all blogs from database
+    {
+        $this->last_query="select title from blog";
+        $this->result = mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+    function set_email($em)       //setting email to the given email
+    {
+        $this->last_query ="UPDATE `about` SET `email`='{$em}' ";
+        $this->result =mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+    function set_phone($phon)    //setting phone
+    {
+        $this->last_query="UPDATE `about` SET `tele_number`='{$phon}' ";
+        $this->result=mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+
+    function set_link($lin)     //setting facebook link
+    {
+        $this->last_query ="UPDATE `about` SET `link`='{$lin}' ";
+        $this->result =mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
+
 }
 
 

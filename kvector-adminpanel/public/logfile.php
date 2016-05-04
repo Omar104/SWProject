@@ -1,5 +1,10 @@
 <?php require_once ("../includes/footer.php"); ?>
-
+<?php
+if(isset($_POST["submit"]))
+{
+    $log->clear_log();
+}
+?>
 <?php   // display the admin tap only if this is a super admin
         $output_admin_bar ="<li ><a  href=\"../public/admins.php\"><i class=\"fa fa-fw fa-cog\"></i> Admins</a></li>";
         ?>
@@ -34,9 +39,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
-                    <a href="logfile.php"><i class="fa fa-fw fa-file"></i> LogFile</a>
-                </li>
+                <?php   // display the admin tap only if this is a super admin
+                $output_admin_log ="  <li class=\"active\">
+                    <a href=\"logfile.php\"><i class=\"fa fa-fw fa-file\"></i> LogFile</a>
+                </li>";
+                if($cur_user->getSuper())
+                    echo $output_admin_log;
+                ?>
                 
 
             </ul>
@@ -81,33 +90,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            
-                            <td>Omar Sayed</td>
-                            
-                            
-                        </tr>
-                        <tr>
-                            
-                            <td>Omar Sayed</td>
-                            
-                            
-                        </tr>
-                        <tr>
-                            <td>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </td>
-                            
-                            
-                        </tr>
-                        <tr>
-                            
-                            <td>Omar Sayed</td>
-                            
-                            
-                        </tr>
+
+
+
+                         <?php $log->read_actions(); ?>
+
+
                         </tbody>
                     </table>
 
+                   <form role="form" method="post" >
 
+
+                       <button type="submit" name="submit" class="btn btn-warning">Clear LOG-FILE</button>
+
+
+                   </form>
 
 
 

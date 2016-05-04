@@ -34,9 +34,13 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="logfile.php"><i class="fa fa-fw fa-file"></i> LogFile</a>
-                </li>
+                <?php   // display the admin tap only if this is a super admin
+                $output_admin_log ="  <li>
+                    <a href=\"logfile.php\"><i class=\"fa fa-fw fa-file\"></i> LogFile</a>
+                </li>";
+                if($cur_user->getSuper())
+                    echo $output_admin_log;
+                ?>
 
             </ul>
             <!-- Footer     -->

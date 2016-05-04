@@ -1,8 +1,8 @@
 <?php
-class log            // class to adjust the log file (writing or reading from it)
+class log           // class to adjust the log file (writing or reading from it)
 {
-   private $handle ;
-   private $action;
+    private $handle ;
+    private $action;
     static $lg = NULL;
 
     private function  __construct()
@@ -12,38 +12,39 @@ class log            // class to adjust the log file (writing or reading from it
     static function  get_instance()
     {
         if(log::$lg == null)
-        $lg = new log();
+        {log::$lg = new log();
+            return (log::$lg);}
         else
             return log::$lg;
     }
     public function set_action($ac)
     {
-        log::$action = $ac;
+        $this->action = $ac;
     }
     public function write_action()    // function to write action to file and date of execution
     {
-        log::$handle = fopen("log.txt","at");
+        $this->handle = fopen("../includes/log.txt","at");
         $tmp =date("d-m-Y",time());
-        fwrite(log::$handle,log::$action.": {$tmp}\r\n");
-        fclose(log::$handle);
+        fwrite($this->handle,$this->action.": {$tmp}\n");
+        fclose($this->handle);
     }
     public function read_actions()       // class to read all the actions done in the  log file
     {
-        if (! (log::$handle = fopen("log.txt","rt")))
+        if (! ($this->handle = fopen("../includes/log.txt","rt")))
             die("couldnt read from file :file doesn't exist");
-        if(filesize("log.txt")>0)
+        if(filesize("../includes/log.txt")>0)
         {
-            while(!feof(log::$handle))
+            while(!feof($this->handle))
             {
-                echo fgets(log::$handle)."</br>";
+                echo "<tr> <td> ".fgets($this->handle)." </td> </tr><br/>";
             }
         }
-        fclose(log::$handle);
+        fclose($this->handle);
     }
     public function clear_log() // to clear the log file
     {
-        log::$handle= fopen("log.txt","w");
-        fclose(log::$handle);
+        $this->handle= fopen("../includes/log.txt","w");
+        fclose($this->handle);
     }
 
 }
