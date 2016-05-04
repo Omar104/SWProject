@@ -167,6 +167,12 @@ class datbase
         $this->confirm_query();
         return $this->row = $this->fetch_row();
     }
+    function set_pass($user,$pass)
+    {
+        $this->last_query="update admin set pass='{$pass}'WHERE username ='{$user}' ";
+        $this->result=mysqli_query($this->connection,$this->last_query);
+        $this->confirm_query();
+    }
 }
 
 

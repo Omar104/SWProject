@@ -2,6 +2,7 @@
 require_once("../includes/functions.php");
 require_once ("validation.php");
 require_once("user.php");
+require_once ("log_file.php");
 ?>
 
 <?php

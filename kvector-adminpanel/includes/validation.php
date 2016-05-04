@@ -46,6 +46,11 @@ class validation  // class to validate user input
             validation::$errorList[] = "password does not match";
         }
     }
+    static function match($p1,$p2)
+    {
+        if($p1 != $p2)
+            validation::$errorList[]="new passwords dont match";
+    }
     static function is_valid_existing_user_name($admin_info)   /// function check if input username is unique and the 2 passwords matches
     {
         global $database;
